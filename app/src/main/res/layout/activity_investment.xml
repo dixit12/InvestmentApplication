@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/backgroundColor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tvCompanyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/round_ups"
+            android:textColor="@color/whiteColor"
+            android:textFontWeight="600"
+            android:textSize="@dimen/textSize_14sp"
+            android:textStyle="bold"
+            tools:ignore="UnusedAttribute" />
+
+        <com.dixitgarg.investmentapplication.custom.Circle
+            android:id="@+id/roundedAmountCircle"
+            android:layout_width="@dimen/margin_100dp"
+            android:layout_height="@dimen/margin_100dp"
+            android:layout_margin="20dp"
+            app:direction="cw"
+            app:gradientStartColor="@color/amountYellowColor"
+            app:gradientCenterColor="@color/amountYellowColor"
+            app:gradientEndColor="@color/amountYellowColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startingAngle="0"
+            app:trackColor="@color/white"
+            app:strokeColor="@color/amountYellowColor"
+            app:strokeGradientSize="stroke_only"
+            app:strokeGradientStyle="radial"
+            app:strokeGradient_linearAngle="0"
+            app:strokeWidth="10dp"
+            app:textColor="@color/white"
+            app:textEnabled="true"
+            app:textFormat="progress"
+            app:textGradientCenterColor="@color/white"
+            app:textGradientEndColor="@color/white"
+            app:textGradientSize="text_only"
+            app:textGradientStartColor="@color/white"
+            app:textGradientStyle="linear"
+            app:textGradient_linearAngle="45"
+            app:textSize="36sp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvInvestmentDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginTop="@dimen/margin_10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_25dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/that_s_all_for_now_keep_investing_as_you_spend"
+            android:textColor="@color/whiteColor"
+            android:textFontWeight="300"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            tools:ignore="UnusedAttribute" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

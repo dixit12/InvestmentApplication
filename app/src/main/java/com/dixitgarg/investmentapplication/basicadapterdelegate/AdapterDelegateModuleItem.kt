@@ -1,0 +1,3 @@
+package com.dixitgarg.investmentapplication.basicadapterdelegate
+
+interface AdapterDelegateModuleItem
