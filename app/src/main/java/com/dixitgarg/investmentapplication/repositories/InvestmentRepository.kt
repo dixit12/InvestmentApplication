@@ -7,6 +7,10 @@ import com.dixitgarg.investmentapplication.model.Investment
 import com.dixitgarg.investmentapplication.roomdb.InvestmentDAO
 
 
-class InvestmentRepository(investmentDAO: InvestmentDAO){
-    val investmentList: LiveData<List<Investment>> = investmentDAO.getInvestmentList
+class InvestmentRepository(private val investmentDAO: InvestmentDAO){
+
+    fun getInvestmentList():LiveData<List<Investment>> {
+        return investmentDAO.getInvestmentList
+    }
+
 }

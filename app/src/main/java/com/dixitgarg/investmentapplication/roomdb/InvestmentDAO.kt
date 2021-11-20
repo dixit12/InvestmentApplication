@@ -14,6 +14,6 @@ interface InvestmentDAO {
     val getInvestmentList: LiveData<List<Investment>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertInvestmentData(investmentList:ArrayList<Investment>)
+    suspend fun insertInvestmentData(investmentList:ArrayList<Investment>)
 
 }

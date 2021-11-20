@@ -60,7 +60,7 @@ abstract class InvestmentDatabase: RoomDatabase() {
             }
         }
 
-        fun populateDatabase(database: InvestmentDatabase, investmentList: ArrayList<Investment>) {
+        suspend fun populateDatabase(database: InvestmentDatabase, investmentList: ArrayList<Investment>) {
             val investmentDao = database.getInvestmentDAO()
             investmentDao.insertInvestmentData(investmentList)
         }

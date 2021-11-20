@@ -17,6 +17,6 @@ class InvestmentViewModel(application:Application) : AndroidViewModel(applicatio
     }
 
     fun getInvestmentListAsLiveData(): LiveData<ArrayList<Investment>>{
-        return investmentRepository.investmentList as LiveData<ArrayList<Investment>>
+        return investmentRepository.getInvestmentList() as LiveData<ArrayList<Investment>>
     }
 }
