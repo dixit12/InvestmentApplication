@@ -11,7 +11,6 @@ import java.util.*
 class Utility {
     companion object {
         const val SERVER_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-
         private val suffixes: NavigableMap<Double, String> =
             TreeMap()
         val UNIT_K = "K"

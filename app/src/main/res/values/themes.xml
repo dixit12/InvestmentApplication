@@ -12,5 +12,13 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="customWhiteColor">@color/white</item>
+        <item name="customCompanyColor">@color/companyColor</item>
+        <item name="customSpentColor">@color/SpentColor</item>
+        <item name="customLWhiteColor">@color/whiteColor</item>
+        <item name="customBackgroundColor">@color/backgroundColor</item>
+        <item name="customYellowColor">@color/amountYellowColor</item>
+        <item name="customCircleColor">@color/circleColor</item>
     </style>
 </resources>

@@ -1,6 +1,8 @@
 package com.dixitgarg.investmentapplication.view.activity
 
 import android.os.Bundle
+import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -12,9 +14,15 @@ import com.dixitgarg.investmentapplication.basicadapterdelegate.AdapterDelegates
 import com.dixitgarg.investmentapplication.basicadapterdelegate.BasicRecyclerViewAdapter
 import com.dixitgarg.investmentapplication.utils.ViewType
 import com.dixitgarg.investmentapplication.model.Investment
+import com.dixitgarg.investmentapplication.utils.Utility
 import com.dixitgarg.investmentapplication.viewModel.InvestmentViewModel
 import com.sew.investmentapplication.R
 import kotlinx.android.synthetic.main.activity_investment.*
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class InvestmentActivity : AppCompatActivity() {
@@ -24,19 +32,20 @@ class InvestmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_investment)
+        llInvestment?.visibility = View.GONE
         this.initViewModel()
         this.setUpRecyclerView()
         investmentViewModel.getInvestmentListAsLiveData().observe(this, {
             this.transactionsList.clear()
             this.transactionsList = it as ArrayList<Investment>
+            llInvestment.visibility = View.VISIBLE
             this.inflateDataToUI()
         })
     }
 
     private fun inflateDataToUI() {
         var totalAmount = 0
-        transactionsList.sortedBy { it.time }
-        transactionsList.reverse()
+        transactionsList.sortByDescending { it.time }
         val finalTransactionList = transactionsList.groupBy { it.convertedTime }
         for (key in finalTransactionList.keys) {
             finalTransactionList[key]?.forEach {

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <attr name="customWhiteColor" format="color"/>
+    <attr name="customCompanyColor" format="color"/>
+    <attr name="customSpentColor" format="color"/>
+    <attr name="customLWhiteColor" format="color"/>
+    <attr name="customBackgroundColor" format="color"/>
+    <attr name="customYellowColor" format="color"/>
+    <attr name="customCircleColor" format="color"/>
+
     <declare-styleable name="CircularProgressView">
         <attr name="maxValue" format="float"/>
         <attr name="strokeWidth" format="dimension"/>

@@ -8,7 +8,7 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="8dp"
-    android:background="@color/white"
+    app:cardBackgroundColor="?customWhiteColor"
     app:cardCornerRadius="12dp"
     app:cardMaxElevation="0dp">
 
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             tools:text="Amazon"
-            android:textColor="@color/companyColor"
+            android:textColor="?customCompanyColor"
             android:textFontWeight="900"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             android:layout_marginTop="2dp"
             android:fontFamily="sans-serif"
             tools:text="Spend 1232"
-            android:textColor="@color/SpentColor"
+            android:textColor="?customSpentColor"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvCompanyName" />
@@ -51,7 +51,7 @@
             android:layout_marginEnd="20dp"
             android:fontFamily="sans-serif-medium"
             tools:text="32"
-            android:textColor="@color/companyColor"
+            android:textColor="?customCompanyColor"
             android:textFontWeight="500"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="@id/tvSpent"
