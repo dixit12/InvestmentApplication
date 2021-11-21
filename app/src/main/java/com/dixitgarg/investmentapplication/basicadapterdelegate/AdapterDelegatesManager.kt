@@ -5,15 +5,10 @@ import androidx.collection.SparseArrayCompat
 import androidx.recyclerview.widget.RecyclerView
 
 class AdapterDelegatesManager<T> {
-    /**
-     * Map for ViewType to AdapterDelegate
-     */
+
     protected var delegates: SparseArrayCompat<AdapterDelegate<T>?> = SparseArrayCompat<AdapterDelegate<T>?>()
     protected var fallbackDelegate: AdapterDelegate<T>? = null
 
-    /**
-     * Adds an [AdapterDelegate] with the specified view type.
-     */
     fun addDelegate(
         viewType: Int,
         delegate: AdapterDelegate<T>
@@ -21,9 +16,6 @@ class AdapterDelegatesManager<T> {
         return addDelegate(viewType, false, delegate)
     }
 
-    /**
-     * Adds an [AdapterDelegate].
-     */
     private fun addDelegate(
         viewType: Int, allowReplacingDelegate: Boolean,
         delegate: AdapterDelegate<T>
@@ -41,10 +33,6 @@ class AdapterDelegatesManager<T> {
         return this
     }
 
-    /**
-     * Must be called from [RecyclerView.Adapter.getItemViewType]. Internally it scans all
-     * the registered [AdapterDelegate] and picks the right one to return the ViewType integer.
-     */
     fun getItemViewType(items: T, position: Int): Int {
         if (items == null) {
             throw NullPointerException("Items datasource is null!")
@@ -64,18 +52,12 @@ class AdapterDelegatesManager<T> {
         )
     }
 
-    /**
-     * This method must be called in [RecyclerView.Adapter.onCreateViewHolder]
-     */
     fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val delegate = getDelegateForViewType(viewType)
             ?: throw NullPointerException("No AdapterDelegate added for ViewType $viewType")
         return delegate.onCreateViewHolder(parent)
     }
 
-    /**
-     * Must be called from[RecyclerView.Adapter.onBindViewHolder]
-     */
     fun onBindViewHolder(items: T, position: Int, holder: RecyclerView.ViewHolder) {
         val delegate = getDelegateForViewType(holder.itemViewType)
             ?: throw NullPointerException("No delegate found for item at this position")
@@ -83,9 +65,6 @@ class AdapterDelegatesManager<T> {
         )
     }
 
-    /**
-     * Get the [AdapterDelegate] associated with the given view type integer
-     */
     private fun getDelegateForViewType(viewType: Int): AdapterDelegate<T>? {
         return delegates[viewType, fallbackDelegate]
     }
